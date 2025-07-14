@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -122,35 +121,37 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-lg border-b border-gray-100 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  QybrrLabs Africa
-                </h1>
+                <img 
+                  src="/lovable-uploads/fc11d20a-c281-434f-abf1-77a2b6451837.png" 
+                  alt="QybrrLabs" 
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden lg:block">
               <div className="flex items-center space-x-1">
-                <a href="#home" className="px-4 py-2 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 font-medium">Home</a>
-                <a href="#services" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Services</a>
-                <a href="#portfolio" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Portfolio</a>
-                <a href="#testimonials" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Testimonials</a>
-                <a href="#about" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">About</a>
-                <a href="#contact" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Contact</a>
+                <a href="#home" className="px-5 py-2 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 font-medium">Home</a>
+                <a href="#services" className="px-5 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Services</a>
+                <a href="#portfolio" className="px-5 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Portfolio</a>
+                <a href="#testimonials" className="px-5 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Testimonials</a>
+                <a href="#about" className="px-5 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">About</a>
+                <a href="#contact" className="px-5 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Contact</a>
               </div>
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-gray-50">
+            <div className="hidden lg:flex items-center space-x-4">
+              <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-primary/5 px-6">
                 Login
               </Button>
-              <Button className="bg-primary hover:bg-primary/90 text-white px-6 shadow-md hover:shadow-lg transition-all duration-200">
+              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-2 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg">
                 Get Started
               </Button>
             </div>
@@ -171,19 +172,19 @@ const Index = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-lg">
+          <div className="lg:hidden bg-white/98 backdrop-blur-lg border-t border-gray-100 shadow-lg">
             <div className="px-6 py-4 space-y-2">
-              <a href="#home" className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium">Home</a>
-              <a href="#services" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Services</a>
-              <a href="#portfolio" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Portfolio</a>
-              <a href="#testimonials" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Testimonials</a>
-              <a href="#about" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">About</a>
-              <a href="#contact" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Contact</a>
+              <a href="#home" className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">Home</a>
+              <a href="#services" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">Services</a>
+              <a href="#portfolio" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">Portfolio</a>
+              <a href="#testimonials" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">Testimonials</a>
+              <a href="#about" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">About</a>
+              <a href="#contact" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">Contact</a>
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-100">
-                <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-gray-50 justify-start">
+                <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-primary/5 justify-start">
                   Login
                 </Button>
-                <Button className="bg-primary hover:bg-primary/90 text-white justify-start shadow-md">
+                <Button className="bg-primary hover:bg-primary/90 text-white justify-start shadow-lg">
                   Get Started
                 </Button>
               </div>
@@ -540,92 +541,44 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-white border-t border-gray-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="lg:col-span-1">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6">
-                QybrrLabs Africa
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-2">
+              <img 
+                src="/lovable-uploads/fc11d20a-c281-434f-abf1-77a2b6451837.png" 
+                alt="QybrrLabs" 
+                className="h-10 w-auto mb-4"
+              />
+              <p className="text-gray-600 mb-6 max-w-md">
                 Empowering African businesses with innovative digital solutions and cutting-edge technology.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <span className="text-sm font-medium">X</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <span className="text-sm font-medium">Li</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <span className="text-sm font-medium">Fb</span>
-                </a>
-              </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-lg mb-6 text-white">Services</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Web Development</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Mobile Apps</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Software Development</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Digital Marketing</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">AI Chatbots</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Graphic Design</a></li>
+              <h4 className="font-semibold text-gray-900 mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-600 hover:text-primary transition-colors">Web Development</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary transition-colors">Mobile Apps</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary transition-colors">Digital Marketing</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary transition-colors">AI Solutions</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold text-lg mb-6 text-white">Company</h4>
-              <ul className="space-y-3">
-                <li><a href="#about" className="text-gray-300 hover:text-primary transition-colors duration-200">About Us</a></li>
-                <li><a href="#portfolio" className="text-gray-300 hover:text-primary transition-colors duration-200">Portfolio</a></li>
-                <li><a href="#testimonials" className="text-gray-300 hover:text-primary transition-colors duration-200">Testimonials</a></li>
-                <li><a href="#blog" className="text-gray-300 hover:text-primary transition-colors duration-200">Blog</a></li>
-                <li><a href="#contact" className="text-gray-300 hover:text-primary transition-colors duration-200">Contact</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-primary transition-colors duration-200">Careers</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-lg mb-6 text-white">Contact Info</h4>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Mail className="h-5 w-5 text-primary mr-3 mt-0.5" />
-                  <div>
-                    <p className="text-gray-300 text-sm">Email</p>
-                    <p className="text-white">info@qybrrlabs.africa</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Phone className="h-5 w-5 text-primary mr-3 mt-0.5" />
-                  <div>
-                    <p className="text-gray-300 text-sm">Phone</p>
-                    <p className="text-white">+254 700 000 000</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5" />
-                  <div>
-                    <p className="text-gray-300 text-sm">Location</p>
-                    <p className="text-white">Nairobi, Kenya</p>
-                  </div>
-                </div>
+              <h4 className="font-semibold text-gray-900 mb-4">Contact</h4>
+              <div className="space-y-2">
+                <p className="text-gray-600">info@qybrrlabs.africa</p>
+                <p className="text-gray-600">+254 700 000 000</p>
+                <p className="text-gray-600">Nairobi, Kenya</p>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                &copy; 2024 QybrrLabs Africa. All rights reserved.
-              </p>
-              <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-200">Privacy Policy</a>
-                <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-200">Terms of Service</a>
-                <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-200">Cookie Policy</a>
-              </div>
-            </div>
+          <div className="border-t border-gray-200 mt-12 pt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              &copy; 2024 QybrrLabs Africa. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
