@@ -122,40 +122,46 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">QybrrLabs Africa</h1>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  QybrrLabs Africa
+                </h1>
               </div>
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <a href="#home" className="text-gray-900 hover:text-blue-600 transition-colors">Home</a>
-                <a href="#services" className="text-gray-600 hover:text-blue-600 transition-colors">Services</a>
-                <a href="#portfolio" className="text-gray-600 hover:text-blue-600 transition-colors">Portfolio</a>
-                <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
-                <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-                <a href="#blog" className="text-gray-600 hover:text-blue-600 transition-colors">Blog</a>
-                <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+            <div className="hidden lg:block">
+              <div className="flex items-center space-x-1">
+                <a href="#home" className="px-4 py-2 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 font-medium">Home</a>
+                <a href="#services" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Services</a>
+                <a href="#portfolio" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Portfolio</a>
+                <a href="#testimonials" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Testimonials</a>
+                <a href="#about" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">About</a>
+                <a href="#contact" className="px-4 py-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-50 transition-all duration-200">Contact</a>
               </div>
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Login</Button>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+            <div className="hidden lg:flex items-center space-x-3">
+              <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-gray-50">
+                Login
+              </Button>
+              <Button className="bg-primary hover:bg-primary/90 text-white px-6 shadow-md hover:shadow-lg transition-all duration-200">
+                Get Started
+              </Button>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-600 hover:text-primary"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -165,18 +171,21 @@ const Index = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#home" className="block px-3 py-2 text-gray-900 hover:text-blue-600">Home</a>
-              <a href="#services" className="block px-3 py-2 text-gray-600 hover:text-blue-600">Services</a>
-              <a href="#portfolio" className="block px-3 py-2 text-gray-600 hover:text-blue-600">Portfolio</a>
-              <a href="#testimonials" className="block px-3 py-2 text-gray-600 hover:text-blue-600">Testimonials</a>
-              <a href="#about" className="block px-3 py-2 text-gray-600 hover:text-blue-600">About</a>
-              <a href="#blog" className="block px-3 py-2 text-gray-600 hover:text-blue-600">Blog</a>
-              <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-blue-600">Contact</a>
-              <div className="flex flex-col space-y-2 px-3 pt-4">
-                <Button variant="ghost" className="text-gray-600 hover:text-blue-600 justify-start">Login</Button>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white justify-start">Get Started</Button>
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-lg">
+            <div className="px-6 py-4 space-y-2">
+              <a href="#home" className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium">Home</a>
+              <a href="#services" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Services</a>
+              <a href="#portfolio" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Portfolio</a>
+              <a href="#testimonials" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Testimonials</a>
+              <a href="#about" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">About</a>
+              <a href="#contact" className="block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200">Contact</a>
+              <div className="flex flex-col space-y-3 pt-4 border-t border-gray-100">
+                <Button variant="ghost" className="text-gray-600 hover:text-primary hover:bg-gray-50 justify-start">
+                  Login
+                </Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white justify-start shadow-md">
+                  Get Started
+                </Button>
               </div>
             </div>
           </div>
@@ -184,26 +193,26 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section id="home" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <Badge className="mb-4 bg-blue-50 text-blue-600 hover:bg-blue-100">
+            <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border-primary/20">
               Leading Digital Solutions in Africa
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Transform Your Business with
-              <span className="text-blue-600 block">Digital Innovation</span>
+              <span className="text-primary block">Digital Innovation</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               QybrrLabs Africa empowers businesses and entrepreneurs with cutting-edge digital solutions. 
               From web development to AI chatbots, we're your technology partner for growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-200">
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+              <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary transition-all duration-200">
                 View Portfolio
               </Button>
             </div>
@@ -227,8 +236,8 @@ const Index = () => {
             {services.map((service, index) => (
               <Card key={index} className="border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <service.icon className="h-6 w-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <service.icon className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
                   <CardDescription className="text-gray-600">
@@ -239,12 +248,12 @@ const Index = () => {
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-white">
                     Learn More
                   </Button>
                 </CardContent>
@@ -277,7 +286,7 @@ const Index = () => {
                   />
                 </div>
                 <CardHeader>
-                  <Badge className="w-fit bg-blue-50 text-blue-600">{item.category}</Badge>
+                  <Badge className="w-fit bg-primary/10 text-primary">{item.category}</Badge>
                   <CardTitle className="text-xl text-gray-900">{item.title}</CardTitle>
                   <CardDescription className="text-gray-600">
                     {item.description}
@@ -346,11 +355,11 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-blue-600 mb-2">500+</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-2">500+</h3>
                   <p className="text-gray-600">Projects Completed</p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-blue-600 mb-2">150+</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-2">150+</h3>
                   <p className="text-gray-600">Happy Clients</p>
                 </div>
               </div>
@@ -388,7 +397,7 @@ const Index = () => {
                 />
               </div>
               <CardHeader>
-                <Badge className="w-fit bg-blue-50 text-blue-600">Technology</Badge>
+                <Badge className="w-fit bg-primary/10 text-primary">Technology</Badge>
                 <CardTitle className="text-xl text-gray-900">
                   The Future of Web Development in Africa
                 </CardTitle>
@@ -412,7 +421,7 @@ const Index = () => {
                 />
               </div>
               <CardHeader>
-                <Badge className="w-fit bg-blue-50 text-blue-600">Mobile</Badge>
+                <Badge className="w-fit bg-primary/10 text-primary">Mobile</Badge>
                 <CardTitle className="text-xl text-gray-900">
                   Mobile-First Design: A Must for African Markets
                 </CardTitle>
@@ -436,7 +445,7 @@ const Index = () => {
                 />
               </div>
               <CardHeader>
-                <Badge className="w-fit bg-blue-50 text-blue-600">AI</Badge>
+                <Badge className="w-fit bg-primary/10 text-primary">AI</Badge>
                 <CardTitle className="text-xl text-gray-900">
                   AI Chatbots: Revolutionizing Customer Service
                 </CardTitle>
@@ -471,21 +480,21 @@ const Index = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center">
-                  <Phone className="h-6 w-6 text-blue-600 mr-4" />
+                  <Phone className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <p className="font-semibold text-gray-900">Phone</p>
                     <p className="text-gray-600">+254 700 000 000</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-6 w-6 text-blue-600 mr-4" />
+                  <Mail className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <p className="font-semibold text-gray-900">Email</p>
                     <p className="text-gray-600">info@qybrrlabs.africa</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-6 w-6 text-blue-600 mr-4" />
+                  <MapPin className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <p className="font-semibold text-gray-900">Location</p>
                     <p className="text-gray-600">Nairobi, Kenya</p>
@@ -503,25 +512,25 @@ const Index = () => {
                   <input 
                     type="text" 
                     placeholder="First Name"
-                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                   <input 
                     type="text" 
                     placeholder="Last Name"
-                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <input 
                   type="email" 
                   placeholder="Email"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <textarea 
                   placeholder="Your message"
                   rows={4}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 ></textarea>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
                   Send Message
                 </Button>
               </CardContent>
@@ -578,7 +587,7 @@ const Index = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           size="icon"
-          className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+          className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg"
           onClick={() => setIsChatOpen(!isChatOpen)}
         >
           <MessageCircle className="h-6 w-6" />
