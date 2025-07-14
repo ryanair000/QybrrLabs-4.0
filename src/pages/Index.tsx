@@ -129,7 +129,7 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/fc11d20a-c281-434f-abf1-77a2b6451837.png" 
                   alt="QybrrLabs" 
-                  className="h-10 w-auto"
+                  className="h-20 w-auto"
                 />
               </div>
             </div>
