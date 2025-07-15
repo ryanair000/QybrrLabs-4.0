@@ -11,6 +11,7 @@ import BlogPost from "./pages/BlogPost";
 import Portfolio from "./pages/Portfolio";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Services from "./pages/Services";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
           <Route path="/portfolio" element={<Portfolio />} />

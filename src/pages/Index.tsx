@@ -651,137 +651,25 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <MemoizedAnimatedSection animation="fade" duration="fast">
-              <Badge className="mb-4 bg-purple-100 text-purple-600 hover:bg-purple-200 border-purple-200">
-                Let's Connect
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Get in Touch
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Ready to start your digital transformation journey? Contact us today.
-              </p>
-            </MemoizedAnimatedSection>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            <MemoizedAnimatedSection animation="fade-right" className="bg-white p-8 rounded-lg shadow-md lg:col-span-2">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                    <MapPin className="text-purple-600" />
-                  </div>
-                  <span className="text-gray-700">Nairobi, Kenya</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                    <Mail className="text-purple-600" />
-                  </div>
-                  <a href="mailto:info@qybrrlabs.com" className="text-gray-700 hover:text-purple-600">
-                    info@qybrrlabs.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                    <Phone className="text-purple-600" />
-                  </div>
-                  <a href="tel:+254750763280" className="text-gray-700 hover:text-purple-600">
-                    +254 750763280
-                  </a>
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-gray-500 hover:text-purple-600">
-                    <Twitter />
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-purple-600">
-                    <Linkedin />
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-purple-600">
-                    <Facebook />
-                  </a>
-                </div>
-              </div>
-            </MemoizedAnimatedSection>
-            
-            <MemoizedAnimatedSection animation="fade-left" className="bg-white p-8 rounded-lg shadow-md lg:col-span-3">
-              <form>
-                <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                      <span className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center mr-3">
-                        <Mail className="h-4 w-4 text-purple-600" />
-                      </span>
-                      Send us a message
-                    </h3>
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                          <input 
-                            id="firstName"
-                            type="text" 
-                            placeholder="Enter your first name"
-                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                          <input 
-                            id="lastName"
-                            type="text" 
-                            placeholder="Enter your last name"
-                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input 
-                          id="email"
-                          type="email" 
-                          placeholder="Enter your email address"
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                        <input 
-                          id="subject"
-                          type="text" 
-                          placeholder="What is this regarding?"
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                        <textarea 
-                          id="message"
-                          placeholder="How can we help you?"
-                          rows={5}
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        ></textarea>
-                      </div>
-                      
-                      <div className="pt-2">
-                        <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
-                          Send Message
-                        </Button>
-                      </div>
-                    </div>
-                </div>
-              </form>
-            </MemoizedAnimatedSection>
-          </div>
+      <section id="contact" className="py-16 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Get in Touch</h2>
+          <p className="text-gray-600 mb-8 text-center">We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@qybrrlabs.com" className="text-purple-600">info@qybrrlabs.com</a> or <a href="tel:+254750763280" className="text-purple-600">+254 750763280</a>.</p>
+          <form className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+              <input id="name" type="text" className="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your Name" />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input id="email" type="email" className="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your Email" />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea id="message" className="w-full border border-gray-300 rounded px-3 py-2" rows={4} placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" className="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Send Message</button>
+          </form>
         </div>
       </section>
 
