@@ -74,8 +74,8 @@ const Header = () => {
                 Home
               </Link>
               <Link 
-                to="/#services" 
-                className={`px-5 py-2 rounded-lg ${isActive('/#services') 
+                to="/services" 
+                className={`px-5 py-2 rounded-lg ${isActive('/services') 
                   ? 'text-purple-600 font-medium' 
                   : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'} transition-all duration-200`}
               >
@@ -150,8 +150,8 @@ const Header = () => {
               Home
             </Link>
             <Link 
-              to="/#services" 
-              className={`block px-4 py-3 rounded-lg ${isActive('/#services') 
+              to="/services" 
+              className={`block px-4 py-3 rounded-lg ${isActive('/services') 
                 ? 'text-purple-600 bg-purple-50 font-medium' 
                 : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'} transition-all duration-200`}
               onClick={() => setIsMenuOpen(false)}
