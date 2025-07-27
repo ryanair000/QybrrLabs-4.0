@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "../components/layout/Layout";
@@ -17,6 +19,9 @@ const SignUp = () => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [signUpError, setSignUpError] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { signUp } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -71,12 +76,14 @@ const SignUp = () => {
     
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      // Handle signup logic here
-      console.log('Sign up with:', formData);
-    }, 1500);
+    const { error } = await signUp(formData.email, formData.password);
+    setIsLoading(false);
+
+    if (error) {
+      setSignUpError(error);
+    } else {
+      navigate('/');
+    }
   };
 
   return (
@@ -264,6 +271,10 @@ const SignUp = () => {
                 </div>
               </div>
               
+              {signUpError && (
+                <p className="text-sm text-red-600 text-center mb-2">{signUpError}</p>
+              )}
+
               <div>
                 <Button 
                   type="submit" 

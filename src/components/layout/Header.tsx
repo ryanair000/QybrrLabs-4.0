@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '@/hooks/useAuth';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import EmailVerificationBanner from '@/components/auth/EmailVerificationBanner';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -38,6 +44,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white shadow-md' 
@@ -57,7 +64,7 @@ const Header = () => {
                 src="/lovable-uploads/fc11d20a-c281-434f-abf1-77a2b6451837.png" 
                 alt="QybrrLabs" 
                 className="h-40 w-auto"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </Link>
           </div>
@@ -98,8 +105,8 @@ const Header = () => {
                 Portfolio
               </Link>
               <Link 
-                to="/#contact" 
-                className={`px-5 py-2 rounded-lg ${isActive('/#contact') 
+                to="/contact" 
+                className={`px-5 py-2 rounded-lg ${isActive('/contact') 
                   ? 'text-purple-600 font-medium' 
                   : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'} transition-all duration-200`}
               >
@@ -108,18 +115,49 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Auth Buttons */}
+          {/* Desktop Auth Area */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/login">
-              <Button variant="ghost" className="text-gray-600 hover:text-purple-600 hover:bg-purple-50 px-6">
-                Login
-              </Button>
-            </Link>
-            <Link to="/signup">
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg">
-                Get Started
-              </Button>
-            </Link>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center focus:outline-none">
+                    <Avatar>
+                      {user.user_metadata?.avatar_url ? (
+                        <AvatarImage src={user.user_metadata.avatar_url} alt={user.email} />
+                      ) : (
+                        <AvatarFallback>
+                          {user.email?.[0]?.toUpperCase()}
+                        </AvatarFallback>
+                      )}
+                    </Avatar>
+                    <span className="ml-2 text-sm text-gray-700">{user.email}</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile">Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onSelect={() => { signOut(); navigate('/'); }}>Sign out</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="ghost" className="text-gray-600 hover:text-purple-600 hover:bg-purple-50 px-6">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -177,8 +215,8 @@ const Header = () => {
               Portfolio
             </Link>
             <Link 
-              to="/#contact" 
-              className={`block px-4 py-3 rounded-lg ${isActive('/#contact') 
+              to="/contact" 
+              className={`block px-4 py-3 rounded-lg ${isActive('/contact') 
                 ? 'text-purple-600 bg-purple-50 font-medium' 
                 : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'} transition-all duration-200`}
               onClick={() => setIsMenuOpen(false)}
@@ -200,8 +238,10 @@ const Header = () => {
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+      <EmailVerificationBanner />
+    </>
   );
 };
 
-export default Header; 
+export default Header;

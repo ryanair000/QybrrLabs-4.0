@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "../components/layout/Layout";
@@ -10,17 +12,21 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      // Handle login logic here
-      console.log('Login attempt with:', { email, password, rememberMe });
-    }, 1500);
+    const { error } = await signIn(email, password);
+    if (error) {
+      setError(error);
+    } else {
+      navigate('/');
+    }
+    setIsLoading(false);
   };
 
   return (
@@ -128,6 +134,10 @@ const Login = () => {
                   )}
                 </Button>
               </div>
+
+              {error && (
+                <p className="text-sm text-red-600 text-center mt-2">{error}</p>
+              )}
             </form>
             
             <div className="mt-6">

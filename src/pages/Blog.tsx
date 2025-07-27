@@ -8,108 +8,67 @@ import { Input } from "@/components/ui/input";
 import { Search, Calendar, User, Tag } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 
-// Sample blog data - this would typically come from a CMS or API
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Future of Mobile App Development in Africa",
-    excerpt: "Discover how mobile app development is evolving across African markets and what trends to watch for in the coming years.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1573164713988-8665fc963095",
-    author: "Michael Ochieng",
-    authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-    date: "2023-10-15",
-    readTime: "6 min",
-    categories: ["Technology", "Mobile Development"],
-    tags: ["Apps", "Africa", "Tech Trends", "Development"]
-  },
-  {
-    id: 2,
-    title: "How AI is Transforming Business Operations in Kenya",
-    excerpt: "Explore the impact of artificial intelligence on businesses across Kenya and how companies are leveraging AI for growth.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1607018151999-51971f9d4f17",
-    author: "Grace Wanjiku",
-    authorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    date: "2023-09-28",
-    readTime: "8 min",
-    categories: ["Technology", "AI"],
-    tags: ["Artificial Intelligence", "Kenya", "Business", "Innovation"]
-  },
-  {
-    id: 3,
-    title: "Web Development Best Practices for 2023",
-    excerpt: "Learn the latest web development best practices to ensure your website is fast, secure, and provides an excellent user experience.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1545670723-196ed0954986",
-    author: "David Mwangi",
-    authorAvatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36",
-    date: "2023-09-05",
-    readTime: "5 min",
-    categories: ["Web Development"],
-    tags: ["Best Practices", "Web Development", "Performance"]
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Strategies for African Startups",
-    excerpt: "Discover effective digital marketing strategies specifically tailored for startups operating in African markets.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1533750349088-cd871a92f312",
-    author: "Sarah Johnson",
-    authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-    date: "2023-08-22",
-    readTime: "7 min",
-    categories: ["Marketing", "Business"],
-    tags: ["Digital Marketing", "Startups", "Africa", "Growth"]
-  },
-  {
-    id: 5,
-    title: "The Rise of E-commerce in East Africa",
-    excerpt: "An analysis of the growing e-commerce sector in East Africa and opportunities for businesses entering the market.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-    author: "John Kamau",
-    authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    date: "2023-08-10",
-    readTime: "9 min",
-    categories: ["E-commerce", "Business"],
-    tags: ["E-commerce", "East Africa", "Market Analysis", "Retail"]
-  },
-  {
-    id: 6,
-    title: "Cybersecurity Challenges for African Businesses",
-    excerpt: "Understanding the unique cybersecurity challenges faced by businesses in Africa and strategies for protection.",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-    author: "Paul Omondi",
-    authorAvatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce",
-    date: "2023-07-19",
-    readTime: "10 min",
-    categories: ["Technology", "Security"],
-    tags: ["Cybersecurity", "Africa", "Business Protection", "Data Security"]
-  }
-];
+import { useQuery } from "@tanstack/react-query";
+import Spinner from '@/components/ui/spinner';
+import { supabase } from "@/lib/supabase";
 
-// Extract all unique categories and tags for filtering
-const allCategories = [...new Set(blogPosts.flatMap(post => post.categories))];
-const allTags = [...new Set(blogPosts.flatMap(post => post.tags))];
+interface Post {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  coverImage: string;
+  author: string;
+  authorAvatar: string | null;
+  date: string;
+  readTime: string | null;
+  categories: string[];
+  tags: string[];
+}
+
+const fetchPosts = async (): Promise<Post[]> => {
+  const { data, error } = await supabase.from("posts").select("*").eq("published", true).order("published_at", { ascending: false });
+  if (error) throw error;
+  return (data as any).map((d: any) => ({
+    id: d.id,
+    title: d.title,
+    excerpt: d.excerpt,
+    content: d.content,
+    coverImage: d.cover_image,
+    author: d.author_name,
+    authorAvatar: d.author_avatar,
+    date: d.published_at,
+    readTime: d.read_time,
+    categories: d.categories ?? [],
+    tags: d.tags ?? [],
+  }));
+};
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  // Filter posts based on search term, category, and tags
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = 
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    
+  const { data: posts = [], isLoading } = useQuery({
+    queryKey: ['posts'],
+    queryFn: fetchPosts,
+  });
+
+    if (isLoading) {
+    return (
+      <Layout>
+        <div className="py-24 flex justify-center"><Spinner size={32} /></div>
+      </Layout>
+    );
+  }
+
+  const allCategories = [...new Set(posts.flatMap(p => p.categories))];
+  const allTags = [...new Set(posts.flatMap(p => p.tags))];
+
+  const filteredPosts = posts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory ? post.categories.includes(selectedCategory) : true;
-    
-    const matchesTags = selectedTags.length > 0 
-      ? selectedTags.every(tag => post.tags.includes(tag))
-      : true;
+    const matchesTags = selectedTags.length > 0 ? selectedTags.every(tag => post.tags.includes(tag)) : true;
     
     return matchesSearch && matchesCategory && matchesTags;
   });

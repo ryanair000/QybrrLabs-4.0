@@ -31,7 +31,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-const Index = () => {
+export default function Index() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -77,48 +77,56 @@ const Index = () => {
       icon: Code,
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies",
+        priceRange: 'Ksh 50,000 – 300,000',
       features: ["Responsive Design", "Modern Frameworks", "SEO Optimized"]
     },
     {
       icon: Smartphone,
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications for iOS and Android",
+        priceRange: 'Ksh 150,000 – 1,000,000',
       features: ["Cross-Platform", "Native Performance", "App Store Ready"]
     },
     {
       icon: Monitor,
       title: "Software Development",
       description: "Custom software solutions tailored to your business needs",
+        priceRange: 'Ksh 200,000 – 1,500,000',
       features: ["Custom Solutions", "Scalable Architecture", "Ongoing Support"]
     },
     {
       icon: Server,
       title: "Web Hosting",
       description: "Reliable and secure web hosting solutions with 99.9% uptime",
+        priceRange: 'Ksh 10,000 – 100,000 / yr',
       features: ["SSL Certificates", "24/7 Support", "Fast Loading"]
     },
     {
       icon: MessageSquare,
       title: "Bulk SMS",
       description: "Reach your customers instantly with our bulk SMS service",
+        priceRange: 'From Ksh 0.7 per SMS',
       features: ["High Delivery Rate", "Instant Delivery", "Cost Effective"]
     },
     {
       icon: TrendingUp,
       title: "Digital Marketing",
       description: "Comprehensive digital marketing strategies to grow your business",
+        priceRange: 'Ksh 30,000 – 300,000 / mo',
       features: ["SEO/SEM", "Social Media", "Content Marketing"]
     },
     {
       icon: Palette,
       title: "Graphic Design",
       description: "Professional graphic design services for all your branding needs",
+        priceRange: 'Ksh 5,000 – 50,000',
       features: ["Brand Identity", "Print Design", "Digital Assets"]
     },
     {
       icon: Bot,
       title: "AI Chatbot Assistants",
       description: "Intelligent chatbots to enhance customer service and engagement",
+        priceRange: 'Ksh 80,000 – 500,000',
       features: ["24/7 Availability", "Natural Language", "Custom Training"]
     }
   ];
@@ -186,48 +194,156 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="home" className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-300/10 to-pink-300/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center">
             <MemoizedAnimatedSection animation="fade" duration="fast" threshold={0.2}>
-              <Badge className="mb-4 bg-purple-100 text-purple-600 hover:bg-purple-200 border-purple-200">
-                Leading Digital Solutions in Africa
+              <Badge className="mb-6 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 hover:from-purple-200 hover:to-pink-200 border-purple-200 shadow-sm">
+                🚀 Leading Digital Solutions in Africa
               </Badge>
             
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Transform Your Business with
-                <span className="text-purple-600 block">Digital Innovation</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent block mt-2">
+                  Digital Innovation
+                </span>
               </h1>
             
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
                 QybrrLabs Africa empowers businesses and entrepreneurs with cutting-edge digital solutions. 
                 From web development to AI chatbots, we're your technology partner for growth.
               </p>
             
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-200">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200 px-8 py-4 text-lg">
                   Start Your Project
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-purple-600 hover:text-purple-600 transition-all duration-200">
+                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-purple-600 hover:text-purple-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 px-8 py-4 text-lg">
                   View Portfolio
                 </Button>
+              </div>
+
+              {/* Stats Section */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">100+</div>
+                  <div className="text-gray-600 text-sm md:text-base">Projects Completed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">50+</div>
+                  <div className="text-gray-600 text-sm md:text-base">Happy Clients</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">5+</div>
+                  <div className="text-gray-600 text-sm md:text-base">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">24/7</div>
+                  <div className="text-gray-600 text-sm md:text-base">Support</div>
+                </div>
               </div>
             </MemoizedAnimatedSection>
           </div>
         </div>
       </section>
 
+      {/* Welcome Video Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='27' cy='7' r='1'/%3E%3Ccircle cx='47' cy='7' r='1'/%3E%3Ccircle cx='7' cy='27' r='1'/%3E%3Ccircle cx='27' cy='27' r='1'/%3E%3Ccircle cx='47' cy='27' r='1'/%3E%3Ccircle cx='7' cy='47' r='1'/%3E%3Ccircle cx='27' cy='47' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-12">
+            <AnimatedSection animation="fade-up">
+              <Badge className="mb-4 bg-white/20 text-white border-white/30 hover:bg-white/30">
+                Welcome to QybrrLabs Africa
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Experience Our Vision
+              </h2>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                Watch how we're transforming African businesses through innovative digital solutions
+              </p>
+            </AnimatedSection>
+          </div>
+
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="relative max-w-4xl mx-auto">
+              {/* Video Container with Modern Styling */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/20">
+                <video
+                  className="w-full h-auto max-h-[500px] object-cover"
+                  controls
+                  preload="metadata"
+                  poster="/lovable-uploads/fc11d20a-c281-434f-abf1-77a2b6451837.png"
+                >
+                  <source src="/qybrrlabs welcome.mp4" type="video/mp4" />
+                  <p className="text-white p-8 text-center">
+                    Your browser doesn't support video playback. 
+                    <a href="/qybrrlabs welcome.mp4" className="text-purple-300 underline ml-2">
+                      Download the video
+                    </a>
+                  </p>
+                </video>
+                
+                {/* Video Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent pointer-events-none"></div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 blur-xl"></div>
+            </div>
+          </AnimatedSection>
+
+          {/* Call to Action Below Video */}
+          <AnimatedSection animation="fade-up" delay={400}>
+            <div className="text-center mt-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-200">
+                  Get Started Today
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200">
+                  Learn More About Us
+                </Button>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-purple-50 relative">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-2xl"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer a wide range of digital solutions to help your business succeed in the digital age.
-            </p>
+            <AnimatedSection animation="fade-up">
+              <Badge className="mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border-purple-200">
+                🎯 What We Offer
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Our Services
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                We offer a wide range of digital solutions to help your business succeed in the digital age.
+              </p>
+            </AnimatedSection>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -243,25 +359,28 @@ const Index = () => {
                   delay={index * 100} 
                   className="flex flex-col h-full"
                 >
-                  <Card className="border-0 shadow-sm h-full hover:shadow-lg transition-shadow duration-300">
+                  <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 h-full group bg-white/80 backdrop-blur-sm transform hover:-translate-y-2">
                     <CardContent className="p-6 flex-grow">
-                      <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
-                        <ServiceIcon className="h-6 w-6 text-purple-600" />
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <ServiceIcon className="h-7 w-7 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
-                      <p className="text-gray-600 mb-4">{service.description}</p>
-                      <div className="space-y-2">
+                      <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">{service.title}</h3>
+                      <p className="text-gray-600 mb-3 leading-relaxed">{service.description}</p>
+                         {service.priceRange && (
+                           <p className="font-semibold text-purple-600 mb-4 text-lg">{service.priceRange}</p>
+                         )}
+                      <div className="space-y-3">
                         {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500" />
-                            <span className="text-gray-700 text-sm">{feature}</span>
+                          <div key={idx} className="flex items-center gap-3">
+                            <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                            <span className="text-gray-700">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </CardContent>
                     <div className="px-6 pb-6">
                       <a href={`/services/${serviceRoute}`}>
-                        <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50">
+                        <Button variant="outline" className="w-full border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                           Learn More
                         </Button>
                       </a>
@@ -275,33 +394,55 @@ const Index = () => {
       </section>
 
       {/* Portfolio */}
-      <section id="portfolio" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="portfolio" className="py-20 bg-white relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20zm-10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Portfolio
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Explore how we've helped businesses across Africa transform and grow digitally
-            </p>
+            <AnimatedSection animation="fade-up">
+              <Badge className="mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border-purple-200">
+                ⭐ Our Work
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Our Portfolio
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Explore how we've helped businesses across Africa transform and grow digitally
+              </p>
+            </AnimatedSection>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <AnimatedSection animation="fade-up" delay={index * 100} className="group" key={index}>
-                <div className="overflow-hidden rounded-lg shadow-md">
-                  <a href="#">
-                    <div className="relative">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 bg-white border border-gray-100">
+                  <a href="#" className="block">
+                    <div className="relative overflow-hidden">
                       <img 
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 p-4 text-white">
-                        <Badge className="bg-purple-600 mb-2">{item.category}</Badge>
-                        <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                        <p className="text-sm text-gray-200">{item.description}</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                      
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/20 transition-all duration-300"></div>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 mb-3 border-0 shadow-lg">
+                          {item.category}
+                        </Badge>
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-purple-200 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-200 group-hover:text-purple-100 transition-colors">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </a>
@@ -310,13 +451,15 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <a href="/portfolio">
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white gap-2">
-                View Portfolio
-                <ArrowRight size={16} />
-              </Button>
-            </a>
+          <div className="mt-16 text-center">
+            <AnimatedSection animation="fade-up" delay={400}>
+              <a href="/portfolio">
+                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200 px-8 py-4 text-lg">
+                  View Complete Portfolio
+                  <ArrowRight size={20} className="ml-2" />
+                </Button>
+              </a>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -651,25 +794,108 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Get in Touch</h2>
-          <p className="text-gray-600 mb-8 text-center">We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@qybrrlabs.com" className="text-purple-600">info@qybrrlabs.com</a> or <a href="tel:+254750763280" className="text-purple-600">+254 750763280</a>.</p>
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-              <input id="name" type="text" className="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your Name" />
+      <section id="contact" className="py-20 bg-gradient-to-b from-purple-50/40 to-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Contact Details */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">Let's talk</h2>
+                <p className="text-lg text-gray-600 max-w-md">
+                  Have a project in mind or just want to say hello? Reach out and our team will get back to you within 24&nbsp;hours.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {/* Phone */}
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">Phone</p>
+                    <a href="tel:+254750763280" className="text-lg text-purple-600 hover:underline">
+                      +254&nbsp;750&nbsp;763&nbsp;280
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                    <Mail className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">Email</p>
+                    <a href="mailto:info@qybrrlabs.com" className="text-lg text-purple-600 hover:underline">
+                      info@qybrrlabs.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">Address</p>
+                    <p className="text-lg text-gray-600">Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input id="email" type="email" className="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your Email" />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-              <textarea id="message" className="w-full border border-gray-300 rounded px-3 py-2" rows={4} placeholder="How can we help you?"></textarea>
-            </div>
-            <button type="submit" className="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Send Message</button>
-          </form>
+
+            {/* Contact Form */}
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      required
+                      className="w-full rounded-md border-gray-300 px-4 py-2.5 shadow-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                      placeholder="Your Name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      required
+                      className="w-full rounded-md border-gray-300 px-4 py-2.5 shadow-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      required
+                      className="w-full rounded-md border-gray-300 px-4 py-2.5 shadow-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                      placeholder="Tell us about your project..."
+                    ></textarea>
+                  </div>
+
+                  <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -716,8 +942,8 @@ const Index = () => {
       </div>
     </Layout>
   );
+}
 
-export default Index;
 
 // Testimonial carousel component
 const TestimonialCarousel = ({ testimonials }) => {

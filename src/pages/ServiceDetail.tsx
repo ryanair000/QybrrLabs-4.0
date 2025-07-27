@@ -38,6 +38,7 @@ const servicesData = {
     ],
     technologies: ["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS", "MongoDB", "PostgreSQL"],
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
+    priceRange: 'Ksh 50,000 – 300,000',
     cta: "Get a custom web development quote"
   },
   "mobile-app-development": {
@@ -64,6 +65,7 @@ const servicesData = {
     ],
     technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "AWS Amplify"],
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
+    priceRange: 'Ksh 150,000 – 1,000,000',
     cta: "Discuss your mobile app project"
   },
   "software-development": {
@@ -90,9 +92,124 @@ const servicesData = {
     ],
     technologies: ["Python", "Java", "C#", ".NET", "AWS", "Azure", "Docker", "Kubernetes"],
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+    priceRange: 'Ksh 200,000 – 1,500,000',
     cta: "Explore custom software solutions"
   },
-  // Additional services can be added here
+  "web-hosting": {
+    title: "Web Hosting",
+    description: "Reliable and secure web hosting solutions with 99.9% uptime",
+    longDescription: "Our managed web-hosting plans keep your site secure, fast and always online. From simple shared hosting to auto-scaling containers, we handle infrastructure so you're free to focus on your business.",
+    features: [
+      "SSD-backed servers and global CDN",
+      "Automatic SSL certificates",
+      "Daily off-site backups",
+      "Staging environments",
+      "24/7 monitoring & support"
+    ],
+    process: [
+      "Select an appropriate plan",
+      "Provision & migrate website",
+      "Performance tuning & security hardening",
+      "Go-live & DNS switch",
+      "Ongoing monitoring & support"
+    ],
+    technologies: ["Nginx", "Docker", "Cloudflare", "AWS", "Netlify"],
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    priceRange: 'Ksh 10,000 – 100,000 / yr',
+    cta: "Launch on our hosting platform"
+  },
+  "bulk-sms": {
+    title: "Bulk SMS",
+    description: "Reach your customers instantly with our bulk SMS service",
+    longDescription: "Send time-critical notifications, promotional messages and OTPs via our high-throughput SMS gateway integrated with major carriers.",
+    features: [
+      "High deliverability & fast throughput",
+      "Sender ID registration assistance",
+      "Detailed delivery reports",
+      "REST & SMPP APIs",
+      "Contact list & campaign management UI"
+    ],
+    process: [
+      "Account setup & sender ID approvals",
+      "Integrate API or upload contacts",
+      "Compose message & schedule",
+      "Real-time delivery analytics"
+    ],
+    technologies: ["Twilio", "Africa's Talking", "Node.js", "PostgreSQL"],
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    priceRange: 'From Ksh 0.7 per SMS',
+    cta: "Start your SMS campaign"
+  },
+  "digital-marketing": {
+    title: "Digital Marketing",
+    description: "Comprehensive digital marketing strategies to grow your business",
+    longDescription: "We craft data-driven marketing campaigns spanning SEO, PPC, social media and email automation to attract and convert your ideal customers.",
+    features: [
+      "Keyword & competitor research",
+      "SEO & content strategy",
+      "Google / Meta ads management",
+      "Marketing automation & email drip", 
+      "Analytics & KPI dashboards"
+    ],
+    process: [
+      "Audit & goal setting",
+      "Campaign planning",
+      "Creative production",
+      "Launch & optimisation",
+      "Reporting & insights"
+    ],
+    technologies: ["Google Analytics", "Meta Ads", "HubSpot", "Semrush"],
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938",
+    priceRange: 'Ksh 30,000 – 300,000 / mo',
+    cta: "Boost my online presence"
+  },
+  "graphic-design": {
+    title: "Graphic Design",
+    description: "Professional graphic design services for all your branding needs",
+    longDescription: "From logos and brand guidelines to marketing collateral and UI mockups, our designers translate ideas into stunning visuals that resonate.",
+    features: [
+      "Brand identity & logo design",
+      "Print & digital collateral",
+      "UI/UX mock-ups",
+      "Illustrations & infographics",
+      "Iterative design process"
+    ],
+    process: [
+      "Creative brief & research",
+      "Concept sketches",
+      "High-fidelity designs",
+      "Feedback & revisions",
+      "Final assets delivery"
+    ],
+    technologies: ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva"],
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657",
+    priceRange: 'Ksh 5,000 – 50,000',
+    cta: "Discuss your design project"
+  },
+  "ai-chatbot-assistants": {
+    title: "AI Chatbot Assistants",
+    description: "Intelligent chatbots to enhance customer service and engagement",
+    longDescription: "Deploy conversational AI agents that provide instant support, qualify leads and integrate with your systems, trained on your knowledge base.",
+    features: [
+      "Natural-language understanding",
+      "Omni-channel deployment (web, WhatsApp, Messenger)",
+      "Backend & CRM integrations",
+      "Analytics & continuous training",
+      "Handover to human agents"
+    ],
+    process: [
+      "Use-case discovery",
+      "Conversation design",
+      "Bot development & training",
+      "Pilot launch",
+      "Monitoring & improvement"
+    ],
+    technologies: ["Dialogflow", "GPT-4", "LangChain", "Supabase"],
+    image: "https://images.unsplash.com/photo-1581094653935-41031dad7bdd",
+    priceRange: 'Ksh 80,000 – 500,000',
+    cta: "Build your AI assistant"
+  },
+  // Additional services added
 };
 
 const ServiceDetail = () => {
@@ -134,9 +251,12 @@ const ServiceDetail = () => {
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   {service.title}
                 </h1>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-xl text-gray-600 mb-4">
                   {service.longDescription}
                 </p>
+                {service.priceRange && (
+                  <p className="text-lg font-semibold text-purple-600 mb-8">{service.priceRange}</p>
+                )}
                 <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
                   {service.cta}
                 </Button>
